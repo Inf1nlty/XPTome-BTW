@@ -1,0 +1,5 @@
+item.xp_tome.name=Tomo de Experiencia
+xpbook.tooltip.1=Agáchate y haz clic derecho para almacenar la mayor cantidad de XP posible
+xpbook.tooltip.2=Haz clic derecho para recuperar toda la XP
+xpbook.tooltip.3=XP almacenada: %1$s/%2$s
+commands.exp.message=Tienes %s de experiencia

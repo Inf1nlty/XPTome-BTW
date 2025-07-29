@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "xptome",
+  "version": "${version}",
+  "name": "XP Tome",
+  "description": "Adds a book that can store a limited amount of XP,\nfor Better Than Wolves Community Edition.",
+  "authors": [
+    "bl4ckscor3",
+    "Inf1nlty"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Inf1nlty/XPTome-BTW"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/xptome/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+    ],
+    "btw:addon": [
+      "btw.community.XPTomeAddon"
+    ]
+  },
+  "custom": {
+    "btw:addon_prefix": "XPT"
+  },
+  "mixins": [
+    "xptome.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "minecraft": "1.6.4"
+  }
+}

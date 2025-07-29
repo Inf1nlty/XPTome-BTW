@@ -1,0 +1,5 @@
+item.xp_tome.name=경험치 책
+xpbook.tooltip.1=웅크린 채 우클릭하여 최대한 많은 경험치를 저장
+xpbook.tooltip.2=우클릭으로 모든 경험치를 회수
+xpbook.tooltip.3=저장된 경험치: %1$s/%2$s
+commands.exp.message=당신의 경험치는 %s 입니다

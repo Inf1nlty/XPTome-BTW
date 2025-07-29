@@ -1,0 +1,5 @@
+item.xp_tome.name=経験値の書
+xpbook.tooltip.1=スニークしながら右クリックでできるだけ多くの経験値を保存
+xpbook.tooltip.2=右クリックで全ての経験値を取り出す
+xpbook.tooltip.3=保存済みXP: %1$s/%2$s
+commands.exp.message=あなたの経験値は %s です

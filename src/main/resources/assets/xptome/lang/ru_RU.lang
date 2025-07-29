@@ -1,0 +1,5 @@
+item.xp_tome.name=Том опыта
+xpbook.tooltip.1=Крадущийся + ПКМ, чтобы сохранить максимум опыта
+xpbook.tooltip.2=ПКМ, чтобы получить весь опыт обратно
+xpbook.tooltip.3=Хранится опыта: %1$s/%2$s
+commands.exp.message=У вас %s опыта

@@ -1,0 +1,5 @@
+item.xp_tome.name=Grimoire d'expérience
+xpbook.tooltip.1=Accroupi + clic droit pour stocker un maximum d'XP
+xpbook.tooltip.2=Clic droit pour récupérer toute l'XP
+xpbook.tooltip.3=XP stockée : %1$s/%2$s
+commands.exp.message=Vous avez %s points d'expérience

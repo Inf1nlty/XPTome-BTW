@@ -1,0 +1,5 @@
+item.xp_tome.name=經驗之書
+xpbook.tooltip.1=潛行並右鍵以盡可能多地儲存經驗
+xpbook.tooltip.2=右鍵以取回所有經驗
+xpbook.tooltip.3=已儲存經驗：%1$s/%2$s
+commands.exp.message=你目前的經驗值為 %s

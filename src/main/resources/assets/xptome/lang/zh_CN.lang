@@ -1,0 +1,5 @@
+item.xp_tome.name=经验之书
+xpbook.tooltip.1=潜行右键来保存经验
+xpbook.tooltip.2=右键取出所有经验
+xpbook.tooltip.3=%1$s/%2$s经验存量
+commands.exp.message=你当前的经验值为 %s
