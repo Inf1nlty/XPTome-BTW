@@ -14,6 +14,7 @@ Perfect for transporting or saving your XP.
 - Retrieve or deposit XP at any time.
 - New crafting recipe, designed for seamless integration with BTW CE.
 - Adds the `/exp` command to view your current total experience
+- You can right-click a Dragon Vessel with an empty XP Tome, the Dragon Vessel’s XP capacity will be increased by 1000.
 
 ## Requirements
 

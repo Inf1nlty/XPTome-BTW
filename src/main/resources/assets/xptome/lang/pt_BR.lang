@@ -2,4 +2,6 @@ item.xp_tome.name=Livro de XP
 xpbook.tooltip.1=Abaixe-se + botão direito para armazenar o máximo de XP possível
 xpbook.tooltip.2=Botão direito para recuperar toda a XP
 xpbook.tooltip.3=XP armazenado: %1$s/%2$s
+xpbook.upgrade.success=Capacidade máxima de XP do Recipiente do Dragão aumentada em %s
+xpbook.tooltip.upgrade=Pode ser usado para aumentar a capacidade de XP do Recipiente do Dragão em %s
 commands.exp.message=Você tem %s de experiência

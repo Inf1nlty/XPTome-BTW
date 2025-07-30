@@ -1,9 +1,11 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "",
+	"package": "com.inf1nlty.xptome.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"ArcaneVesselBlockMixin",
+		"ArcaneVesselTileEntityMixin"
 	],
 	"client": [
 	],

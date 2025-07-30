@@ -2,4 +2,6 @@ item.xp_tome.name=Erfahrungsbuch
 xpbook.tooltip.1=Schleichen + Rechtsklick, um so viel XP wie möglich zu speichern
 xpbook.tooltip.2=Rechtsklick, um alle XP zurückzuerhalten
 xpbook.tooltip.3=Gespeicherte XP: %1$s/%2$s
+xpbook.upgrade.success=Das maximale Erfahrungslimit des Drachenschiffes wurde um %s erhöht!
+xpbook.tooltip.upgrade=Kann verwendet werden, um die Erfahrungskapazität des Drachenschiffs um %s zu erhöhen
 commands.exp.message=Du hast %s Erfahrungspunkte

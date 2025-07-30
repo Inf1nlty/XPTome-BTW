@@ -6,8 +6,10 @@ import net.minecraft.src.Item;
 public class XPTomeItems {
     public static Item xpTome;
 
-    static {
-        xpTome = new XPTomeItem(2333)
+    public static void registerItems() {
+
+        xpTome = new XPTomeItem(23333)
                 .setCreativeTab(CreativeTabs.tabMisc);
+        Item.itemsList[xpTome.itemID] = xpTome;
     }
 }

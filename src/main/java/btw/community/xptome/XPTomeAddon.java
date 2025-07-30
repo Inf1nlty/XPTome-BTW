@@ -14,15 +14,7 @@ public class XPTomeAddon extends BTWAddon {
     @Override
     public void initialize() {
         AddonHandler.logMessage(getName() + " v" + getVersionString() + " Initializing...");
-
-        RecipeManager.addShapelessRecipe(
-                new ItemStack(XPTomeItems.xpTome, 1),
-                new Object[]{
-                        Item.enchantedBook,
-                        BTWBlocks.dragonVessel,
-                        BTWItems.soulUrn,
-                }
-        );
+        XPTomeItems.registerItems();
         AddonHandler.registerCommand(new ExpCommand(), false);
     }
 }
