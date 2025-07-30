@@ -1,4 +1,4 @@
-package xptome;
+package com.inf1nlty.xptome;
 
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;

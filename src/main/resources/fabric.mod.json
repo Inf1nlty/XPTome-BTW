@@ -18,7 +18,7 @@
     "main": [
     ],
     "btw:addon": [
-      "btw.community.XPTomeAddon"
+      "btw.community.xptome.XPTomeAddon"
     ]
   },
   "custom": {

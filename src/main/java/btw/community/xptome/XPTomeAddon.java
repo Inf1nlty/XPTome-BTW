@@ -1,4 +1,4 @@
-package btw.community;
+package btw.community.xptome;
 
 import btw.BTWAddon;
 import btw.AddonHandler;
@@ -7,8 +7,8 @@ import btw.crafting.recipe.RecipeManager;
 import btw.item.BTWItems;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import xptome.ExpCommand;
-import xptome.XPTomeItems;
+import com.inf1nlty.xptome.ExpCommand;
+import com.inf1nlty.xptome.XPTomeItems;
 
 public class XPTomeAddon extends BTWAddon {
     @Override
