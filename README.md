@@ -1,31 +1,39 @@
-# XP Tome for Better Than Wolves Community Edition
+# XP Tome for Better Than Wolves Community Edition (3.0.x)
 
-Adds a book that can store a limited amount of XP
-for Better Than Wolves Community Edition.
+This mod adds a special XP Tome book that allows you to store and retrieve your experience points in Better Than Wolves Community Edition.  
+Perfect for keeping your XP safe or moving it between locations!
 
 ---
 
-This mod introduces an XP Tome—a special book item that allows you to safely store and retrieve your experience points.  
-Perfect for transporting or saving your XP.
-
 ## Features
 
-- Adds an XP Tome item that can store a limited amount of experience points.
-- Retrieve or deposit XP at any time.
-- New crafting recipe, designed for seamless integration with BTW CE.
-- Adds the `/exp` command to view your current total experience
-- You can right-click a Dragon Vessel with an empty XP Tome, the Dragon Vessel’s XP capacity will be increased by 1000.
+- **XP Tome** item that can store up to 30 levels of XP (825 XP points).
+- Deposit or withdraw XP at any time.
+- New `/exp` command to check your current XP.
+- Right-click a Dragon Vessel with an empty XP Tome to permanently increase the vessel’s XP capacity by 1000.
+- **Crafting:** To craft an XP Tome, place an Ancient Manuscript onto a Dragon Vessel, then throw a Soul Urn onto the vessel.
+
+### Note
+
+- If you break and replace a Dragon Vessel after upgrading its capacity, the increased capacity will *not* persist.
+- However, the upgrade will be correctly saved and restored after reloading the world (by exiting and re-entering the game).
+
+---
 
 ## Requirements
 
-- Minecraft with Better Than Wolves Community Edition 3.x
+- Minecraft with [Better Than Wolves Community Edition 3.x](https://github.com/BetterWithMods/BetterThanWolves-CommunityEdition)
 
-## Installation
+---
 
-1. Download the latest release of this mod.
-2. Place the `.jar` file into your `mods` folder.
-3. Launch Minecraft with BTW Community Edition.
+## How to Install
 
-## License
+1. [Download the latest release (.jar)](https://github.com/Inf1nlty/XPTome-BTW/releases/latest)
+2. Place it into your `mods` folder
+3. Start Minecraft with BTW Community Edition
 
-MIT
+---
+
+## Credits
+
+- Ported from the original mod by [bl4ckscor3/XP-Tome](https://github.com/bl4ckscor3/XP-Tome)
