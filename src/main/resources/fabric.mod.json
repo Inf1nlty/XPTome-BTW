@@ -9,9 +9,10 @@
     "Inf1nlty"
   ],
   "contact": {
-    "homepage": "https://github.com/Inf1nlty/XPTome-BTW"
+    "homepage": "https://github.com/Inf1nlty/XPTome-BTW",
+    "sources": "https://github.com/Inf1nlty/XPTome-BTW"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/xptome/icon.png",
   "environment": "*",
   "entrypoints": {
