@@ -5,9 +5,11 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"ArcaneVesselBlockMixin",
-		"ArcaneVesselTileEntityMixin"
+		"ArcaneVesselTileEntityMixin",
+		"TileEntityMixin"
 	],
 	"client": [
+		"GuiNewChatMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

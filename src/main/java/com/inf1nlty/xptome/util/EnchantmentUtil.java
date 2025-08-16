@@ -1,8 +1,8 @@
-package com.inf1nlty.xptome;
+package com.inf1nlty.xptome.util;
 
 import net.minecraft.src.EntityPlayer;
 
-public class EnchantmentUtils {
+public class EnchantmentUtil {
 
     public static int getPlayerXP(EntityPlayer player) {
         return getExperienceForLevel(player.experienceLevel) +

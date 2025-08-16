@@ -1,7 +1,8 @@
 package com.inf1nlty.xptome;
 
 import btw.block.BTWBlocks;
-import com.inf1nlty.xptome.util.IXpCapacityUpgradeable;
+import com.inf1nlty.xptome.util.EnchantmentUtil;
+import com.inf1nlty.xptome.util.ICapacity;
 import net.minecraft.src.*;
 import java.util.List;
 import java.util.Random;
@@ -27,10 +28,10 @@ public class XPTomeItem extends Item {
 
         if (blockId == arcaneVesselBlockId && storedXP == 0) {
             TileEntity te = world.getBlockTileEntity(x, y, z);
-            if (te instanceof IXpCapacityUpgradeable) {
+            if (te instanceof ICapacity) {
                 if (!world.isRemote) {
-                    ((IXpCapacityUpgradeable) te).increaseXpCapacity(CAPACITY_UPGRADE);
-                    player.addChatMessage(StatCollector.translateToLocalFormatted("xpbook.upgrade.success", CAPACITY_UPGRADE));
+                    ((ICapacity) te).xPTome$increaseXpCapacity(CAPACITY_UPGRADE);
+                    player.addChatMessage("xpbook.upgrade.success|amount=" + CAPACITY_UPGRADE);
                     stack.stackSize = 0;
                 }
                 player.playSound("btw:entity.villager.priest_infuse", 1.0F, 1.0F);
@@ -45,13 +46,13 @@ public class XPTomeItem extends Item {
         int storedXP = getStoredXP(stack);
 
         if (player.isSneaking()) {
-            int playerXP = EnchantmentUtils.getPlayerXP(player);
+            int playerXP = EnchantmentUtil.getPlayerXP(player);
             int leftCapacity = MAX_XP - storedXP;
             int toStore = Math.min(playerXP, leftCapacity);
 
             if (toStore > 0) {
                 setStoredXP(stack, storedXP + toStore);
-                EnchantmentUtils.addPlayerXP(player, -toStore);
+                EnchantmentUtil.addPlayerXP(player, -toStore);
                 if (world.isRemote) {
                     float pitch = (random.nextFloat() - random.nextFloat()) * 0.35F + 0.9F;
                     player.playSound("random.classic_hurt", 1.0F, pitch);
@@ -60,7 +61,7 @@ public class XPTomeItem extends Item {
         } else {
             if (storedXP > 0) {
                 int oldLevel = player.experienceLevel;
-                EnchantmentUtils.addPlayerXP(player, storedXP);
+                EnchantmentUtil.addPlayerXP(player, storedXP);
                 setStoredXP(stack, 0);
 
                 int newLevel = player.experienceLevel;
