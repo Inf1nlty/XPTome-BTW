@@ -2,7 +2,7 @@ package com.inf1nlty.xptome.mixin;
 
 import btw.block.blocks.ArcaneVesselBlock;
 import com.inf1nlty.xptome.XPTomeItems;
-import com.inf1nlty.xptome.util.IXpCapacityUpgradeable;
+import com.inf1nlty.xptome.util.ICapacity;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.Item;
@@ -54,8 +54,8 @@ public abstract class ArcaneVesselBlockMixin {
     private float dynamicXpCapacityForComparator(float original, World world, int x, int y, int z, int side) {
         try {
             Object tile = world.getBlockTileEntity(x, y, z);
-            if (tile instanceof IXpCapacityUpgradeable) {
-                return ((IXpCapacityUpgradeable) tile).getXpCapacity();
+            if (tile instanceof ICapacity) {
+                return ((ICapacity) tile).xPTome$getXpCapacity();
             }
         } catch (Throwable ignore) {}
         return 1000.0F;
