@@ -1,18 +1,20 @@
 {
-	"required": true,
-	"minVersion": "0.8",
-	"package": "com.inf1nlty.xptome.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ArcaneVesselBlockMixin",
-		"ArcaneVesselTileEntityMixin",
-		"HopperTileEntityMixin",
-		"TileEntityMixin"
-	],
-	"client": [
-		"GuiNewChatMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.inf1nlty.xptome.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ArcaneVesselBlockMixin",
+    "ArcaneVesselTileEntityMixin",
+    "HopperTileEntityMixin",
+    "MinecraftServerMixin",
+    "TileEntityMixin"
+  ],
+  "client": [
+    "GuiNewChatMixin",
+    "MinecraftMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
