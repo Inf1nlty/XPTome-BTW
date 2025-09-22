@@ -26,8 +26,8 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
     @Shadow(remap = false) private int containedDragonExperience;
     @Shadow(remap = false) private int containedRegularExperience;
     @Shadow(remap = false) private int visualExperienceLevel;
-    @Shadow(remap = false) public abstract void writeToNBT(NBTTagCompound nbt);
-    @Shadow(remap = false) public abstract void readFromNBT(NBTTagCompound nbt);
+    @Shadow public abstract void writeToNBT(NBTTagCompound nbt);
+    @Shadow public abstract void readFromNBT(NBTTagCompound nbt);
 
     @Override
     public int xPTome$getXpCapacity() { return xpCapacity; }
