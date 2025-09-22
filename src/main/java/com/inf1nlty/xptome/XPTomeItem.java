@@ -101,7 +101,7 @@ public class XPTomeItem extends Item {
         }
     }
 
-    private static int getStoredXP(ItemStack stack) {
+    public static int getStoredXP(ItemStack stack) {
         NBTTagCompound tag = stack.stackTagCompound;
         return tag != null ? tag.getInteger("StoredXP") : 0;
     }

@@ -7,12 +7,11 @@
     "ArcaneVesselBlockMixin",
     "ArcaneVesselTileEntityMixin",
     "HopperTileEntityMixin",
-    "MinecraftServerMixin",
     "TileEntityMixin"
   ],
   "client": [
-    "GuiNewChatMixin",
-    "MinecraftMixin"
+    "client.GuiContainerMixin",
+    "client.RenderItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -107,13 +107,13 @@ loom {
 	targetCompatibility = JavaVersion.VERSION_17
 }
 
-runClient {
-	dependsOn(jar)
-}
-
-runServer {
-	dependsOn(jar)
-}
+//runClient {
+//	dependsOn(jar)
+//}
+//
+//runServer {
+//	dependsOn(jar)
+//}
 
 class BTWJarReplacer implements MinecraftJarProcessor<Spec> {
 	String name
