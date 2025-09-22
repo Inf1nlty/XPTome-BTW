@@ -3,6 +3,7 @@ package com.inf1nlty.xptome.mixin;
 import btw.block.blocks.ArcaneVesselBlock;
 import btw.block.tileentity.ArcaneVesselTileEntity;
 import com.inf1nlty.xptome.XPTomeItems;
+import com.inf1nlty.xptome.util.IAbsorbedByDispenser;
 import com.inf1nlty.xptome.util.ICapacity;
 import net.minecraft.src.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -15,7 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(ArcaneVesselBlock.class)
-public abstract class ArcaneVesselBlockMixin {
+public abstract class ArcaneVesselBlockMixin extends Block {
+
+    protected ArcaneVesselBlockMixin(int par1, Material par2Material) {
+        super(par1, par2Material);
+    }
 
     @SuppressWarnings("unchecked")
     @Unique
@@ -61,6 +66,11 @@ public abstract class ArcaneVesselBlockMixin {
 
         TileEntity te = world.getBlockTileEntity(x, y, z);
 
+        if (te == null) return;
+        if (te instanceof IAbsorbedByDispenser && ((IAbsorbedByDispenser) te).xptome$isBeingAbsorbedByDispenser()) {
+            return;
+        }
+
         if (te instanceof ArcaneVesselTileEntity vessel) {
             vessel.ejectContentsOnBlockBreak();
         }
@@ -80,5 +90,28 @@ public abstract class ArcaneVesselBlockMixin {
             world.spawnEntityInWorld(entity);
         }
         ci.cancel();
+    }
+
+    @Override
+    public ItemStack getStackRetrievedByBlockDispenser(World world, int x, int y, int z) {
+
+        TileEntity tileEnt = world.getBlockTileEntity(x, y, z);
+
+        if (tileEnt instanceof ArcaneVesselTileEntity vessel) {
+            ((IAbsorbedByDispenser) vessel).xptome$setBeingAbsorbedByDispenser(true);
+
+            NBTTagCompound tag = new NBTTagCompound();
+            vessel.writeToNBT(tag);
+            ItemStack drop = new ItemStack(this);
+
+            if (tag.hasKey("xpCapacity")) {
+                NBTTagCompound stackTag = new NBTTagCompound();
+                stackTag.setInteger("xpCapacity", tag.getInteger("xpCapacity"));
+                drop.setTagCompound(stackTag);
+            }
+            return drop;
+        }
+
+        return new ItemStack(this);
     }
 }

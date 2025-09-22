@@ -1,6 +1,7 @@
 package com.inf1nlty.xptome.mixin;
 
 import btw.block.tileentity.ArcaneVesselTileEntity;
+import com.inf1nlty.xptome.util.IAbsorbedByDispenser;
 import com.inf1nlty.xptome.util.ICapacity;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet;
@@ -15,9 +16,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArcaneVesselTileEntity.class)
-public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implements ICapacity {
+public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implements ICapacity, IAbsorbedByDispenser {
+
     @Unique
     private int xpCapacity = 1000;
+    @Unique
+    private boolean xptome$beingAbsorbedByDispenser = false;
 
     @Shadow(remap = false) private int containedDragonExperience;
     @Shadow(remap = false) private int containedRegularExperience;
@@ -100,4 +104,14 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
             this.worldObj.markBlockRangeForRenderUpdate(this.xCoord, this.yCoord, this.zCoord, this.xCoord, this.yCoord, this.zCoord);
         }
     }
+
+    @Override
+    public boolean xptome$isBeingAbsorbedByDispenser() {
+        return xptome$beingAbsorbedByDispenser;
+    }
+    @Override
+    public void xptome$setBeingAbsorbedByDispenser(boolean value) {
+        xptome$beingAbsorbedByDispenser = value;
+    }
+
 }
