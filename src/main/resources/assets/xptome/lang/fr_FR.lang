@@ -1,7 +1,13 @@
-item.xp_tome.name=Grimoire d'expérience
-xpbook.tooltip.1=Accroupi + clic droit pour stocker un maximum d'XP
-xpbook.tooltip.2=Clic droit pour récupérer toute l'XP
-xpbook.tooltip.3=XP stockée : %1$s/%2$s
-xpbook.upgrade.success=La capacité maximale d'expérience du Récipient du Dragon a augmenté de {amount}
-xpbook.tooltip.upgrade=Peut être utilisé pour augmenter de %s la capacité d'expérience du Récipient du Dragon
-commands.exp.message=Vous avez {xp} points d'expérience
+item.xp_tome.name=Grimoire d'XP
+
+xptome.tooltip.1=Shift + clic droit pour stocker l'XP
+xptome.tooltip.2=Clic droit pour retirer toute l'XP
+xptome.tooltip.3=%1$s/%2$s XP stocké
+xptome.upgrade.success=La capacité maximale d'XP du Récipient du Dragon a été augmentée de %d
+xptome.tooltip.upgrade=Utilisé pour augmenter le Récipient du Dragon de %s XP
+
+xptome.dragonvessel.exp=XP : %s/%s
+xptome.dragonvessel.unit=Unité d'orbe d'XP : %d
+xptome.dragonvessel.xp_capacity=Limite de stockage d'XP : %d
+
+commands.exp.message=Votre XP actuel est %d

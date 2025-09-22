@@ -1,7 +1,13 @@
-item.xp_tome.name=経験値の書
-xpbook.tooltip.1=スニークしながら右クリックでできるだけ多くの経験値を保存
-xpbook.tooltip.2=右クリックで全ての経験値を取り出す
-xpbook.tooltip.3=保存済みXP: %1$s/%2$s
-xpbook.upgrade.success=ドラゴン容器の最大経験値容量が {amount} 増加しました！
-xpbook.tooltip.upgrade=ドラゴン容器の経験値容量を %s 増加させるために使用できます
-commands.exp.message=あなたの経験値は {xp} です
+item.xp_tome.name=経験の書
+
+xptome.tooltip.1=スニークしながら右クリックで経験値を保存
+xptome.tooltip.2=右クリックで全ての経験値を取り出す
+xptome.tooltip.3=%1$s/%2$s 経験値が保存されました
+xptome.upgrade.success=ドラゴン容器の最大経験値容量が %d 増加しました
+xptome.tooltip.upgrade=ドラゴン容器の容量を %s 経験値分アップグレード
+
+xptome.dragonvessel.exp=経験値: %s/%s
+xptome.dragonvessel.unit=経験オーブ単位: %d
+xptome.dragonvessel.xp_capacity=経験値保存上限: %d
+
+commands.exp.message=現在の経験値は %d です

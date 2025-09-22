@@ -1,7 +1,13 @@
 item.xp_tome.name=Livro de XP
-xpbook.tooltip.1=Abaixe-se + botão direito para armazenar o máximo de XP possível
-xpbook.tooltip.2=Botão direito para recuperar toda a XP
-xpbook.tooltip.3=XP armazenado: %1$s/%2$s
-xpbook.upgrade.success=Capacidade máxima de XP do Recipiente do Dragão aumentada em {amount}
-xpbook.tooltip.upgrade=Pode ser usado para aumentar a capacidade de XP do Recipiente do Dragão em %s
-commands.exp.message=Você tem {xp} de experiência
+
+xptome.tooltip.1=Agache e clique direito para armazenar XP
+xptome.tooltip.2=Clique direito para retirar todo o XP
+xptome.tooltip.3=%1$s/%2$s XP armazenado
+xptome.upgrade.success=Capacidade máxima de XP do Recipiente do Dragão aumentada em %d
+xptome.tooltip.upgrade=Usado para aprimorar o Recipiente do Dragão em %s de XP
+
+xptome.dragonvessel.exp=XP: %s/%s
+xptome.dragonvessel.unit=Unidade de orbe de XP: %d
+xptome.dragonvessel.xp_capacity=Limite de armazenamento de XP: %d
+
+commands.exp.message=Seu XP atual é %d

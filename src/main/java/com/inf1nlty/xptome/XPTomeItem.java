@@ -1,6 +1,7 @@
 package com.inf1nlty.xptome;
 
 import btw.block.BTWBlocks;
+import com.inf1nlty.xptome.util.ChatUtil;
 import com.inf1nlty.xptome.util.EnchantmentUtil;
 import com.inf1nlty.xptome.util.ICapacity;
 import net.minecraft.src.*;
@@ -28,16 +29,19 @@ public class XPTomeItem extends Item {
 
         if (blockId == arcaneVesselBlockId && storedXP == 0) {
             TileEntity te = world.getBlockTileEntity(x, y, z);
+
             if (te instanceof ICapacity) {
                 if (!world.isRemote) {
                     ((ICapacity) te).xPTome$increaseXpCapacity(CAPACITY_UPGRADE);
-                    player.addChatMessage("xpbook.upgrade.success|amount=" + CAPACITY_UPGRADE);
+                    world.markBlockForUpdate(x, y, z);
+                    player.sendChatToPlayer(ChatUtil.trans("xptome.upgrade.success", EnumChatFormatting.GREEN, CAPACITY_UPGRADE));
                     stack.stackSize = 0;
                 }
                 player.playSound("btw:entity.villager.priest_infuse", 1.0F, 1.0F);
                 return true;
             }
         }
+
         return false;
     }
 
@@ -53,6 +57,7 @@ public class XPTomeItem extends Item {
             if (toStore > 0) {
                 setStoredXP(stack, storedXP + toStore);
                 EnchantmentUtil.addPlayerXP(player, -toStore);
+
                 if (world.isRemote) {
                     float pitch = (random.nextFloat() - random.nextFloat()) * 0.35F + 0.9F;
                     player.playSound("random.classic_hurt", 1.0F, pitch);
@@ -79,25 +84,32 @@ public class XPTomeItem extends Item {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void addInformation(ItemStack stack, EntityPlayer player, List info, boolean advanced) {
         int storedXP = getStoredXP(stack);
         float percent = (float) storedXP / (float) MAX_XP;
         String color;
+
         if (percent >= 0.75f) {
             color = "§a";
+
         } else if (percent >= 0.5f) {
             color = "§e";
+
         } else if (percent >= 0.25f) {
             color = "§6";
+
         } else {
             color = "§c";
         }
+
         String colorMax = "§7" + MAX_XP + "§f";
-        info.add(StatCollector.translateToLocal("xpbook.tooltip.1"));
-        info.add(StatCollector.translateToLocal("xpbook.tooltip.2"));
-        info.add(String.format(StatCollector.translateToLocal("xpbook.tooltip.3"), color + storedXP + "§f", colorMax));
+        info.add(StatCollector.translateToLocal("xptome.tooltip.1"));
+        info.add(StatCollector.translateToLocal("xptome.tooltip.2"));
+        info.add(String.format(StatCollector.translateToLocal("xptome.tooltip.3"), color + storedXP + "§f", colorMax));
+
         if (storedXP == 0) {
-            info.add(StatCollector.translateToLocalFormatted("xpbook.tooltip.upgrade", CAPACITY_UPGRADE));
+            info.add(StatCollector.translateToLocalFormatted("xptome.tooltip.upgrade", CAPACITY_UPGRADE));
         }
     }
 

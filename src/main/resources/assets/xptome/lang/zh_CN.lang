@@ -1,7 +1,13 @@
 item.xp_tome.name=经验之书
-xpbook.tooltip.1=潜行右键来保存经验
-xpbook.tooltip.2=右键取出所有经验
-xpbook.tooltip.3=%1$s/%2$s经验存量
-xpbook.upgrade.success=龙之容器的最大经验容量提升了 {amount} 点
-xpbook.tooltip.upgrade=可用于提升龙之容器 %s 点经验容量
-commands.exp.message=你当前的经验值为 {xp}
+
+xptome.tooltip.1=潜行右键来保存经验
+xptome.tooltip.2=右键取出所有经验
+xptome.tooltip.3=%1$s/%2$s经验存量
+xptome.upgrade.success=龙之容器的最大经验容量提升了 %d 点
+xptome.tooltip.upgrade=可用于提升龙之容器 %s 点经验容量
+
+xptome.dragonvessel.exp=经验: %s/%s
+xptome.dragonvessel.unit=经验球单位: %d
+xptome.dragonvessel.xp_capacity=经验存储上限: %d
+
+commands.exp.message=你当前的经验值为 %d

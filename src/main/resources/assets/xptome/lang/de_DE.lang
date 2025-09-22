@@ -1,7 +1,13 @@
-item.xp_tome.name=Erfahrungsbuch
-xpbook.tooltip.1=Schleichen + Rechtsklick, um so viel XP wie möglich zu speichern
-xpbook.tooltip.2=Rechtsklick, um alle XP zurückzuerhalten
-xpbook.tooltip.3=Gespeicherte XP: %1$s/%2$s
-xpbook.upgrade.success=Das maximale Erfahrungslimit des Drachenschiffes wurde um {amount} erhöht!
-xpbook.tooltip.upgrade=Kann verwendet werden, um die Erfahrungskapazität des Drachenschiffs um %s zu erhöhen
-commands.exp.message=Du hast {xp} Erfahrungspunkte
+item.xp_tome.name=Buch der Erfahrung
+
+xptome.tooltip.1=Schleichen + Rechtsklick zum Speichern von Erfahrung
+xptome.tooltip.2=Rechtsklick zum Entnehmen aller Erfahrung
+xptome.tooltip.3=%1$s/%2$s Erfahrung gespeichert
+xptome.upgrade.success=Die maximale Erfahrungskapazität des Drachengefäßes wurde um %d erhöht
+xptome.tooltip.upgrade=Kann verwendet werden, um das Drachengefäß um %s Erfahrung zu erweitern
+
+xptome.dragonvessel.exp=Erfahrung: %s/%s
+xptome.dragonvessel.unit=Erfahrungsorb-Einheit: %d
+xptome.dragonvessel.xp_capacity=Erfahrungsspeicherlimit: %d
+
+commands.exp.message=Dein aktueller Erfahrungswert beträgt %d

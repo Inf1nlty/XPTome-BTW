@@ -9,13 +9,16 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(HopperTileEntity.class)
 public abstract class HopperTileEntityMixin extends TileEntityMixin {
-    @ModifyConstant(method = "attemptToEjectXPIntoArcaneVessel", constant = @Constant(intValue = 1000), remap = false
-    )
+
+    @ModifyConstant(method = "attemptToEjectXPIntoArcaneVessel", constant = @Constant(intValue = 1000), remap = false)
     private int dynamicArcaneVesselCapacity(int original, int iTargetI, int iTargetJ, int iTargetK) {
+
         TileEntity targetTile = worldObj.getBlockTileEntity(iTargetI, iTargetJ, iTargetK);
+
         if (targetTile instanceof ICapacity) {
             return ((ICapacity)targetTile).xPTome$getXpCapacity();
         }
+
         return original;
     }
 }

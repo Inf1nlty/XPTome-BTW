@@ -1,5 +1,6 @@
 package com.inf1nlty.xptome;
 
+import com.inf1nlty.xptome.util.ChatUtil;
 import net.minecraft.src.CommandBase;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ICommandSender;
@@ -31,8 +32,7 @@ public class ExpCommand extends CommandBase {
     public void processCommand(ICommandSender sender, String[] args) {
         EntityPlayer player = (EntityPlayer) sender;
         int xp = player.experienceTotal;
-        ChatMessageComponent message = ChatMessageComponent.createFromText("commands.exp.message|xp=" + xp);
-        message.setColor(EnumChatFormatting.GOLD);
+        ChatMessageComponent message = ChatUtil.trans("commands.exp.message", EnumChatFormatting.GOLD, xp);
         player.sendChatToPlayer(message);
     }
 }

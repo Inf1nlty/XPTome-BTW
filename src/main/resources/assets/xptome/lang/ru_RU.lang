@@ -1,7 +1,13 @@
-item.xp_tome.name=Том опыта
-xpbook.tooltip.1=Крадущийся + ПКМ, чтобы сохранить максимум опыта
-xpbook.tooltip.2=ПКМ, чтобы получить весь опыт обратно
-xpbook.tooltip.3=Хранится опыта: %1$s/%2$s
-xpbook.upgrade.success=Максимальная вместимость опыта Драконьего сосуда увеличена на {amount}
-xpbook.tooltip.upgrade=Можно использовать для увеличения вместимости опыта Драконьего сосуда на %s
-commands.exp.message=У вас {xp} опыта
+item.xp_tome.name=Книга опыта
+
+xptome.tooltip.1=Красться и ПКМ для сохранения опыта
+xptome.tooltip.2=ПКМ для получения всего опыта
+xptome.tooltip.3=%1$s/%2$s опыта накоплено
+xptome.upgrade.success=Максимальная ёмкость Драконьего сосуда увеличена на %d
+xptome.tooltip.upgrade=Используется для увеличения ёмкости Драконьего сосуда на %s опыта
+
+xptome.dragonvessel.exp=Опыт: %s/%s
+xptome.dragonvessel.unit=Единица сферы опыта: %d
+xptome.dragonvessel.xp_capacity=Лимит хранения опыта: %d
+
+commands.exp.message=Ваш текущий опыт: %d

@@ -5,12 +5,15 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ArcaneVesselBlockMixin",
+    "ItemMixin",
     "ArcaneVesselTileEntityMixin",
+    "BlockMixin",
     "HopperTileEntityMixin",
     "TileEntityMixin"
   ],
   "client": [
     "client.GuiContainerMixin",
+    "client.GuiIngameMixin",
     "client.RenderItemMixin"
   ],
   "injectors": {
