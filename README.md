@@ -13,11 +13,6 @@ Perfect for keeping your XP safe or moving it between locations!
 - Right-click a Dragon Vessel with an empty XP Tome to permanently increase the vessel’s XP capacity by 1000.
 - **Crafting:** To craft an XP Tome, place an Ancient Manuscript onto a Dragon Vessel, then throw a Soul Urn onto the vessel.
 
-### Note
-
-- If you break and replace a Dragon Vessel after upgrading its capacity, the increased capacity will *not* persist.
-- However, the upgrade will be correctly saved and restored after reloading the world (by exiting and re-entering the game).
-
 ---
 
 ## Requirements
