@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(TileEntity.class)
 public abstract class TileEntityMixin {
+
     @Shadow
     public World worldObj;
     @Shadow

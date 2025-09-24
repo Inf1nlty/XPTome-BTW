@@ -82,6 +82,16 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
         }
     }
 
+    @Inject(method = "setContainedRegularExperience", at = @At("TAIL"), remap = false)
+    private void injectSyncRegularXP(int iExperience, CallbackInfo ci) {
+        this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+    }
+
+    @Inject(method = "setContainedDragonExperience", at = @At("TAIL"), remap = false)
+    private void injectSyncDragonXP(int iExperience, CallbackInfo ci) {
+        this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+    }
+
     /**
      * @author Inf1nlty
      * @reason Sync all NBT data including xpCapacity to client.
