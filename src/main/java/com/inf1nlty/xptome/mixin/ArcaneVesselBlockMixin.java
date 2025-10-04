@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
@@ -59,6 +60,24 @@ public abstract class ArcaneVesselBlockMixin extends Block {
         return 1000.0F;
     }
 
+    @Redirect(method = "renderBlock(Lnet/minecraft/src/RenderBlocks;III)Z", at = @At(value = "INVOKE", target = "Lbtw/block/tileentity/ArcaneVesselTileEntity;getVisualExperienceLevel()I"))
+    private int redirectGetVisualExperienceLevel(ArcaneVesselTileEntity vessel) {
+
+        int regXP = vessel.getContainedRegularExperience();
+        int dragXP = vessel.getContainedDragonExperience();
+        int totalXP = regXP + dragXP;
+
+        int capacity = 1000;
+
+        if (vessel instanceof ICapacity) {
+            capacity = ((ICapacity) vessel).xPTome$getXpCapacity();
+        }
+
+        if (capacity <= 0) capacity = 1000;
+
+        return (int)(10.0F * ((float)totalXP / (float)capacity));
+    }
+
     @Inject(method = "breakBlock", at = @At("HEAD"), cancellable = true)
     private void injectXpCapacityDrop(World world, int x, int y, int z, int blockID, int meta, CallbackInfo ci) {
 
@@ -68,6 +87,7 @@ public abstract class ArcaneVesselBlockMixin extends Block {
 
         if (te == null) return;
         if (te instanceof IAbsorbedByDispenser && ((IAbsorbedByDispenser) te).xptome$isBeingAbsorbedByDispenser()) {
+            world.removeBlockTileEntity(x, y, z);
             return;
         }
 
@@ -89,6 +109,7 @@ public abstract class ArcaneVesselBlockMixin extends Block {
             EntityItem entity = new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, drop);
             world.spawnEntityInWorld(entity);
         }
+        world.removeBlockTileEntity(x, y, z);
         ci.cancel();
     }
 

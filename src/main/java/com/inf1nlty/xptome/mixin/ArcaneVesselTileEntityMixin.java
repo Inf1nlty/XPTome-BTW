@@ -3,9 +3,7 @@ package com.inf1nlty.xptome.mixin;
 import btw.block.tileentity.ArcaneVesselTileEntity;
 import com.inf1nlty.xptome.util.IAbsorbedByDispenser;
 import com.inf1nlty.xptome.util.ICapacity;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.Packet;
-import net.minecraft.src.Packet132TileEntityData;
+import net.minecraft.src.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,9 +21,11 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
     @Unique
     private boolean xptome$beingAbsorbedByDispenser = false;
 
-    @Shadow(remap = false) public int containedDragonExperience;
-    @Shadow(remap = false) public int containedRegularExperience;
-    @Shadow(remap = false) public int visualExperienceLevel;
+    @Shadow(remap = false) private int containedDragonExperience;
+    @Shadow(remap = false) private int containedRegularExperience;
+    @Shadow(remap = false) private int visualExperienceLevel;
+    @Shadow(remap = false) public abstract void setContainedDragonExperience(int xp);
+    @Shadow(remap = false) public abstract void setContainedRegularExperience(int xp);
     @Shadow public abstract void writeToNBT(NBTTagCompound nbt);
     @Shadow public abstract void readFromNBT(NBTTagCompound nbt);
 
@@ -41,9 +41,39 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
         return Math.max(1, this.xpCapacity / 50);
     }
 
-    @ModifyConstant(method = "attemptToSwallowXPOrb", constant = @org.spongepowered.asm.mixin.injection.Constant(intValue = 1000))
-    private int swallowXpCapacity(int original) {
-        return this.xpCapacity;
+    /**
+     * @reason Absorbs experience from an XP orb into the vessel.
+     * Only absorbs up to available capacity, and deducts the correct value from the orb.
+     * Prevents infinite XP duplication with large orbs.
+     * @author Inf1nlty
+     */
+    @Overwrite
+    public boolean attemptToSwallowXPOrb(World world, int i, int j, int k, EntityXPOrb entityXPOrb) {
+
+        int iTotalContainedXP = this.containedRegularExperience + this.containedDragonExperience;
+        int iRemainingSpace = this.xpCapacity - iTotalContainedXP;
+
+        if (iRemainingSpace > 0) {
+
+            int iXPToAddToInventory = Math.min(entityXPOrb.xpValue, iRemainingSpace);
+            boolean bIsDragonOrb = entityXPOrb.notPlayerOwned;
+
+            if (bIsDragonOrb) {
+                this.setContainedDragonExperience(this.containedDragonExperience + iXPToAddToInventory);
+            }
+            else {
+                this.setContainedRegularExperience(this.containedRegularExperience + iXPToAddToInventory);
+            }
+
+            entityXPOrb.xpValue -= iXPToAddToInventory;
+            if (entityXPOrb.xpValue <= 0) {
+                entityXPOrb.setDead();
+            }
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @ModifyConstant(method = "attemptToSpillXPFromInv", constant = @org.spongepowered.asm.mixin.injection.Constant(intValue = 20), remap = false)
@@ -79,6 +109,9 @@ public abstract class ArcaneVesselTileEntityMixin extends TileEntityMixin implem
     private void readXpCapacityFromNBT(NBTTagCompound nbt, CallbackInfo ci) {
         if (nbt.hasKey("xpCapacity")) {
             this.xpCapacity = nbt.getInteger("xpCapacity");
+        }
+        else {
+            this.xpCapacity = 1000;
         }
     }
 
