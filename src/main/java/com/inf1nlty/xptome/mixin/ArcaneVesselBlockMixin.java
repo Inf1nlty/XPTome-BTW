@@ -5,6 +5,8 @@ import btw.block.tileentity.ArcaneVesselTileEntity;
 import com.inf1nlty.xptome.XPTomeItems;
 import com.inf1nlty.xptome.util.IAbsorbedByDispenser;
 import com.inf1nlty.xptome.util.ICapacity;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.src.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -60,6 +62,7 @@ public abstract class ArcaneVesselBlockMixin extends Block {
         return 1000.0F;
     }
 
+    @Environment(EnvType.CLIENT)
     @Redirect(method = "renderBlock(Lnet/minecraft/src/RenderBlocks;III)Z", at = @At(value = "INVOKE", target = "Lbtw/block/tileentity/ArcaneVesselTileEntity;getVisualExperienceLevel()I"))
     private int redirectGetVisualExperienceLevel(ArcaneVesselTileEntity vessel) {
 
