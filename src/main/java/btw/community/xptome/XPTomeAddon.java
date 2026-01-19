@@ -1,7 +1,7 @@
 package btw.community.xptome;
 
-import btw.BTWAddon;
-import btw.AddonHandler;
+import api.AddonHandler;
+import api.BTWAddon;
 import btw.crafting.recipe.RecipeManager;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
